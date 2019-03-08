@@ -1,0 +1,26 @@
+{
+  "name": "wispi-spa",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bootstrap": "^4.3.1",
+    "bootstrap-vue": ">=2.0.0-rc.14",
+    "es6-promise": "^4.2.6",
+    "jquery": "^3.3.1",
+    "lodash": "^4.17.11",
+    "semantic-ui-css": "^2.4.1",
+    "vue": "^2.6.8",
+    "vue-search-select": "^2.8.3",
+    "vue-router": "^3.0.2"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.5.0",
+    "@vue/cli-service": "^3.5.0",
+    "vue-template-compiler": "^2.6.8"
+  }
+}
