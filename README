@@ -1,0 +1,61 @@
+# psql (als Nutzer postgres)
+pg_dump bund_db > $SQL_FILE_PATH
+psql bund_db < $SQL_FILE_PATH
+
+# postgrest starten
+~/usrlocal/src/postgrest/.stack-work/dist/x86_64-linux-nopie/Cabal-1.24.2.0/build/postgrest/postgrest ~/workspace/bund-app/postgrest.conf
+killall -HUP postgrest
+
+# Entwicklerdienst starten
+cd ~/workspace/bund-app/spa && npm run dev
+
+
+# DEPLOYMENT initial
+* Postgres 10 hatte ich bereits installiert, `psql -Upostgres` klappte mit Admin-Passwort
+* hab die Datenbank `bund_db` gelöscht und per `psql` den kompletten Datenbankstand von meinem System importiert
+* mittels `psql` das Passwort für Konto `bufdi` angepasst
+* in `api.js` die IP-Adresse von `buero2` eingetragen (192.168.1.39 statt localhost)
+* per `npm run build` das Zeuch in `dist` aktualisiert
+* in Vorbereitung für Apache die MSVC15-Runtime installiert
+* Apache Haus installiert unter C:\Apache24, darunter irgendwo kam dann auch der Inhalt von `dist`
+* `postgrest` per `nssm` zu Windows-Dienst erhoben (inkl. stdout/stderr-Umleitung in Logdatei)
+* `postgrest.conf` um `server-host` ergänzt (ebenfalls 192.168.1.39)
+* FIXME Rolle `backup` mit Passwort `BUND` hat lesenden Zugriff
+* Aufgabe eingestellt: einmal täglich wird per `pg_dump` ein Backup von `bund_db` erzeugt
+* FIXME aktuell läuft alles ohne SSL, aber für ein lokales Netz ist das wohl auch okay
+
+# DEPLOYMENT zukünftig
+* prüfen, dass in `api.js` die richtige `baseURL` steht (http://192.168.1.39:3000/)
+* `npm run build` und das Ergebnis dann an die richtige Stelle unter Apache24
+* bei Änderungen am Datenbankschema... wird das interessant...
+  * Falls möglich, vielleicht pg_dump einmal ohne Daten und dann einmal nur Daten exportieren lassen?
+  * Dann alle Änderungen in zwischen zwei Releases in entsprechend dedizierte SQL-Datei schreiben.
+
+# TO DO
+* SSL (reverse proxy?) sowie CORS eruieren
+* scaling issues
+  * don't deal with them at this moment: how many rows will we possibly have in the medium run?
+    * we can add data-model filtering/pagination later
+      (if we use view-model filtering/pagination everywhere, the transition should barely affect the UI)
+* encapsulate the database (and server communication) in a global data store
+  * addresses or expertises could easily be cached
+  * and it might pave the way (at least in principle) for reactivity (via long polling at first?)
+* queries that encompass multiple columns
+  * -> create computed column and index it
+* make it barely presentable so that it can go on Github (also, nobody will care anyway)
+
+
+-- TODO: Seitentitel von spa in Wissensspeicher ändern!
+-- TODO: weitere Geschäftsobjekte: Material/Inventar, Ressourcen
+-- TODO: Trigger für discriminator
+-- Links ins Dateisystem (insb. Netzspeicher Home) ermöglichen
+-- Person: Titel, Anrede kanonisieren
+-- Rolle charakterisieren
+
+
+create table temp (new_id serial primary key, old_id integer);
+insert into temp (old_id) select id from base order by id;
+update base set id = new_id from temp where temp.old_id = id;
+drop table temp;
+
+
