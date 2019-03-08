@@ -1,3 +1,8 @@
+Wispi -- knowledge vault (Wissensspeicher) for the Dresden group of Friends of the Earth.
+Postgres 10 database + PostgREST + Vue.js single-page application.
+
+--- from here on: personal notes ---
+
 # psql (als Nutzer postgres)
 pg_dump bund_db > $SQL_FILE_PATH
 psql bund_db < $SQL_FILE_PATH
@@ -45,8 +50,6 @@ cd ~/workspace/bund-app/spa && npm run dev
 * make it barely presentable so that it can go on Github (also, nobody will care anyway)
 
 
--- TODO: Seitentitel von spa in Wissensspeicher ändern!
--- TODO: weitere Geschäftsobjekte: Material/Inventar, Ressourcen
 -- TODO: Trigger für discriminator
 -- Links ins Dateisystem (insb. Netzspeicher Home) ermöglichen
 -- Person: Titel, Anrede kanonisieren
