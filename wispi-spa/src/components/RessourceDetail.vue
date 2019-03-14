@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-form-group id="gtitel" label="Titel" label-for="titel" label-cols="2">
-      <b-input title="titel" name="titel" placeholder="Titel" v-model="value.titel" />
+      <b-input title="titel" name="titel" placeholder="Titel" v-model="value.titel" :state="Boolean(value.titel)" />
     </b-form-group>
     <b-form-group id="gzielgruppe" label="Zielgruppe" label-for="zielgruppe" label-cols="2">
       <b-input title="zielgruppe" name="zielgruppe" placeholder="Zielgruppe" v-model="value.zielgruppe"/>

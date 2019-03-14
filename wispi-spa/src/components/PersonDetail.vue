@@ -10,7 +10,7 @@
       <b-input title="vorname" name="vorname" placeholder="Vorname" v-model="value.vorname" />
     </b-form-group>
     <b-form-group id="gname" label="Name" label-for="name" label-cols="2">
-      <b-input title="name" name="name" placeholder="Name" v-model="value.name" />
+      <b-input title="name" name="name" placeholder="Name" v-model="value.name" :state="Boolean(value.name)" />
     </b-form-group>
     <b-form-group id="gfunction" label="Funktion" label-for="funktion" label-cols="2">
       <b-input title="funktion" name="funktion" placeholder="Funktion" v-model="value.funktion"/>

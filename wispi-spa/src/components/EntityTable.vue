@@ -56,7 +56,7 @@
   const DefaultFields = [
     {key: 'id', label: 'id', sortable: true, 'class': 'id-column'},
     {key: 'sortname', label: 'Name', sortable: true, 'class': 'sortname-column'},
-    {key: 'empty', label: '&nbsp;', sortable: false}
+    {key: 'empty', label: '', sortable: false}
   ]
   
   const Config = {
@@ -64,7 +64,7 @@
       {key: 'id', label: 'id', sortable: true, 'class': 'id-column'},
       {key: 'sortname', label: 'Name', sortable: true, 'class': 'sortname-column'},
       {key: 'discriminator', label: 'Art', sortable: true, 'class': 'discriminator-column'},
-      {key: 'empty', label: '&nbsp;', sortable: false}
+      {key: 'empty', label: '', sortable: false}
     ],
     person: [
       {key: 'id', label: 'id', sortable: true, 'class': 'id-column'},

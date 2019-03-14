@@ -7,7 +7,7 @@
       </template>
       <b-form @submit="evt => evt.preventDefault()" @reset="evt => evt.preventDefault()">
         <b-form-row>
-          <b-col cols="10"><b-form-textarea v-model="row.notiz" :plaintext="!row.checked" :ref="'input' + row.id" placeholder="Neuer Kommentar" rows="1"></b-form-textarea></b-col>
+          <b-col cols="10"><b-form-textarea v-model="row.notiz" :plaintext="!row.checked" :ref="'input' + row.id" placeholder="Neuer Kommentar" rows="1" :state="Boolean(row.notiz)"></b-form-textarea></b-col>
           <b-col>
             <b-button-group v-if="row.checked">
               <b-btn :disabled="!row.notiz" size="lg" type="submit" variant="outline-primary" @click="save(row)" title="Speichern">&#128427;</b-btn>

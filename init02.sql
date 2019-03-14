@@ -40,6 +40,10 @@ union all
 union all
 (select * from base natural join ist_thema rel);
 
+-- Constraints vergessen!
+alter table person alter column name set not null;
+alter table organisation alter column name set not null;
+
 -- letztes Mal vergessen...
 grant all on all tables in schema bund to web_user;
 grant all on all sequences in schema bund to web_user;

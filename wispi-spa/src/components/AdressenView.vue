@@ -6,7 +6,7 @@
           <template v-if="item.checked">
             <AdresseView :value="item"></AdresseView>
             <b-button-group>
-              <b-button type="submit" variant="primary" @click="save(item)">Speichern</b-button>
+              <b-button :disabled="!item.empfaenger" type="submit" variant="primary" @click="save(item)">Speichern</b-button>
               <b-button @click="reset(item)"><template v-if="item.id !== undefined">Zücksetzen</template><template v-else>Abbrechen</template></b-button>
             </b-button-group>
           </template>

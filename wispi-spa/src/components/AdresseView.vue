@@ -5,7 +5,7 @@
         <b-input title="art" name="art" placeholder="Art der Adresse" v-model="value.art" />
       </b-form-group>
       <b-form-group id="gname" label="Empfänger*in" label-for="name" label-cols="2">
-        <b-input title="name" name="name" placeholder="Empfänger*in" v-model="value.empfaenger" />
+        <b-input title="name" name="name" placeholder="Empfänger*in" v-model="value.empfaenger" :state="Boolean(value.empfaenger)" />
       </b-form-group>
       <b-form-group id="gstrasse" label="Zeile 1" label-for="strasse1" label-cols="2">
         <b-input title="zeile1" name="strasse1" placeholder="Zeile 1" v-model="value.zeile1" />
