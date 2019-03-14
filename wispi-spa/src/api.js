@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 let blubb = axios.create({
-  // baseURL: 'http://192.168.1.6:3000/'
+  // baseURL: 'http://192.168.1.39:3000/',
   baseURL: 'http://localhost:3000/',
   headers: {}
 })
@@ -22,6 +22,7 @@ const DiscriminatorKombi = [
   ['ist_aktionaktive', 'aktion', 'person'],
   ['ist_aktionsraum', 'aktion', 'raum'],
   ['ist_aktionsinventar', 'aktion', 'inventar'],
+  ['ist_aktionspartnerorga', 'aktion', 'organisation'],
   ['ist_unterorganisation', 'organisation', 'organisation']
 ]
 

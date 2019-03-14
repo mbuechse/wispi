@@ -8,11 +8,11 @@ pg_dump bund_db > $SQL_FILE_PATH
 psql bund_db < $SQL_FILE_PATH
 
 # postgrest starten
-~/usrlocal/src/postgrest/.stack-work/dist/x86_64-linux-nopie/Cabal-1.24.2.0/build/postgrest/postgrest ~/workspace/bund-app/postgrest.conf
+cd ~/workspace/wispi && ~/usrlocal/src/postgrest/.stack-work/dist/x86_64-linux-nopie/Cabal-1.24.2.0/build/postgrest/postgrest postgrest.conf
 killall -HUP postgrest
 
 # Entwicklerdienst starten
-cd ~/workspace/bund-app/spa && npm run dev
+cd ~/workspace/wispi/wispi-spa && npm run serve
 
 
 # DEPLOYMENT initial
