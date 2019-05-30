@@ -2,7 +2,8 @@ import axios from 'axios'
 
 let blubb = axios.create({
   // baseURL: 'http://192.168.1.39:3000/',
-  baseURL: 'http://localhost:3000/',
+  // // baseURL: 'http://localhost:3000/',
+  baseURL: 'https://bundd.uber.space/wispi_db/',
   headers: {}
 })
 
