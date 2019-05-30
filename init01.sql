@@ -1,4 +1,5 @@
 set search_path to bund, public;
+set role mbue;
 
 -- Thema BUNDjugend umbenennen in Kinder und Jugend
 update thema set thema = 'Kinder und Jugend' where id = 86;

@@ -1,4 +1,5 @@
 set search_path to bund, public;
+set role mbue;
 
 -- Aktionspartnerorga
 create table ist_aktionspartnerorga (

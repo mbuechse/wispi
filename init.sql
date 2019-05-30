@@ -298,11 +298,11 @@ create table ist_aktionsraum (
     unique (subjekt_id, objekt_id)
 );
 
-create table objeignung (
-    obj_id integer references objekt (id) on delete cascade on update cascade,
-    eign_id integer references eignung (id) on delete cascade on update cascade,
-    primary key (obj_id, eign_id)
-);
+-- create table objeignung (
+--     obj_id integer references objekt (id) on delete cascade on update cascade,
+--     eign_id integer references eignung (id) on delete cascade on update cascade,
+--     primary key (obj_id, eign_id)
+-- );
 
 create table film (
     id integer primary key references base (id) on delete cascade on update cascade,
@@ -383,7 +383,7 @@ create table kategorie (
 -- TODO bislang ungenutzt
 create table inventarkategorie (
     inventar_id integer references inventar (id) on delete cascade on update cascade,
-    kategorie_id integerkategorie_id) references kategorie (id) on delete cascade on update cascade,
+    kategorie_id integer references kategorie (id) on delete cascade on update cascade,
     primary key (inventar_id, kategorie_id)
 );
 
